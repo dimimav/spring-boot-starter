@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users list</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Username</td>
+    </tr>
+    <tr>
+        <td th:text="${user.id}">...</td>
+        <td colspan="2" th:text="${user.username}">...</td>
+    </tr>
+</table>
+</body>
