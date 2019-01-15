@@ -1,0 +1,28 @@
+version: '3'
+services:
+  db:
+    container_name: spring-boot-starter-database
+    image: mysql/mysql-server:5.7
+    environment:
+      MYSQL_DATABASE: spring_boot_starter
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
+    ports:
+    - "3306:3306"
+    restart: always
+    volumes:
+    - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  app:
+    container_name: spring-boot-starter-app
+    restart: always
+    build: .
+    working_dir: /app
+    volumes:
+    - ./:/app
+    - ~/.m2:/root/.m2
+    ports:
+    - "8080:8080"
+    command: ./mvnw spring-boot:run
+    depends_on:
+    - db

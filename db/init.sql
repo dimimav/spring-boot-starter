@@ -1,4 +1,5 @@
 CREATE DATABASE IF NOT EXISTS spring_boot_starter;
+
 USE spring_boot_starter;
 
 CREATE TABLE users (
@@ -8,3 +9,5 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
+
+INSERT INTO users(id, username, password, email) VALUES (1, 'admin', md5('admin'), 'admin@test.com');
