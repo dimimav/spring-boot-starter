@@ -1,4 +1,12 @@
-# Spring boot starter project
+# Spring Boot starter project
+
+Tools included:
+* Spring Boot
+* Spring MVC
+* Spring Data JPA
+* Spring Boot DevTools
+* MySQL/Postgres Connector
+* Thymeleaf
 
 ## Run as packaged application
 
