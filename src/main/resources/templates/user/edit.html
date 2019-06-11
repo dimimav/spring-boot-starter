@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users list</title>
+</head>
+<body>
+<form action="#" th:action="@{/user/{id}/edit(id=${user.id})}" th:object="${user}" method="post">
+    <label for="name">Username</label>
+    <input type="text" th:field="*{username}" id="username" placeholder="username">
+    <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+
+    <label for="name">Passowrd</label>
+    <input type="text" th:field="*{password}" id="password" placeholder="password">
+    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+
+
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    <input type="submit" value="Edit User">
+</form>
+<p><a href="/">Home</a></p>
+</body>

@@ -15,5 +15,6 @@
         <td colspan="2" th:text="${user.username}">...</td>
     </tr>
 </table>
+<p><a th:href="@{'/user/' + ${user.id} + '/edit'}"/>Edit user</a></p>
 <p><a href="/">Home</a></p>
 </body>

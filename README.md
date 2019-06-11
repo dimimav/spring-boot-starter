@@ -12,7 +12,7 @@ Tools included:
 
 `mvn package`
 
-`java -jar target/spring-boot-starter-0.0.1-SNAPSHOT.jar`
+`java -jar target/spring-boot-starter.jar`
 
 ## Run using the Maven Spring Boot plugin (JVM hot swapping)
 `mvn spring-boot:run`

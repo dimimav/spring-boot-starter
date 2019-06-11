@@ -36,9 +36,29 @@ public class UserController {
 
     @RequestMapping(value="/user/{id}")
     public String getUser(@PathVariable("id") Long id, Model model){
+        logger.info("in UserController - getUser");
         User user = userService.findById(id);
         model.addAttribute("user", user);
         return "user/view";
+    }
+
+    @GetMapping(value="/user/{id}/edit")
+    public String prepareEditUser(@PathVariable("id") Long id, Model model){
+        User user = userService.findById(id);
+        model.addAttribute("user", user);
+        return "user/edit";
+    }
+
+    @PostMapping(value="/user/{id}/edit")
+    public String editUser(@PathVariable("id") Long id, @Valid User user, BindingResult result, Model model){
+        model.addAttribute("user", user);
+        if (result.hasErrors()) {
+            user.setId(id);
+            return "user/edit";
+        }
+        userService.saveUser(user);
+        model.addAttribute("users", userService.getAllusers());
+        return "user/listAll";
     }
 
     @GetMapping(value="/user/add")
