@@ -10,4 +10,6 @@ public interface UserService {
     List<User> getAllusers();
 
     User findById(Long id);
+    
+    User saveUser(User user);
 }
